@@ -1,0 +1,41 @@
+<ng-template #errors>
+  <div class="text-danger">
+    {{errorMessage}}
+  </div>
+</ng-template>
+<div class="card mt-5" *ngIf="searchCategories ; else errors">
+  <div class="card-header d-flex align-content-center justify-content-between">
+    <h3>Category List Administration</h3>
+    <a class="btn btn-success" routerLink="/admin/category/add">ADD</a>
+  </div>
+  <div class="card-body">
+    <div class="input-group">
+      <input type="text" placeholder="Enter the food name for search" [(ngModel)]="searchKeyword" class="form-control" id="search">
+    </div>
+    <hr>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cat of searchCategories">
+        <td>{{cat.categoryId}}</td>
+        <td>{{cat.name}}</td>
+        <td>{{cat.description}}</td>
+        <td class="d-flex align-content-center justify-content-around">
+          <button class="btn btn-outline-warning" (click)="handleEditCategory(cat)">
+            <i class="bi bi-file"></i>
+          </button>
+          <button class="btn btn-outline-danger" (click)="handleDeleteCategory(cat)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

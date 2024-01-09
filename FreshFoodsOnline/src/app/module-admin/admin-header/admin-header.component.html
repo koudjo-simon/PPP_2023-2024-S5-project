@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark header">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/admin']">GL Online Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'product', 'all']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'product', 'all']">Liste</a>
+          </li>
+
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/admin/category/add">Add</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/all">List</a></li>
+            </ul>
+          </li>-->
+
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/product/add">Add</a></li>
+              <li><a class="dropdown-item" routerLink="/product/all">List</a></li>
+            </ul>
+          </li>-->
+
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'category', 'all']">Category</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'product', 'all']">Product</a>
+          </li>
+
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Commands
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/work/new-user">Add</a></li>
+              <li><a class="dropdown-item" routerLink="/work/users">List</a></li>
+            </ul>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'command', 'all']">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/admin', 'about']" disabled="true">About</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li>
+            <a class="nav-link">
+              {{ authAdmin.username }}
+            </a>
+          </li>
+          <li>
+            <a class="btn nav-link" (click)="handleLogout()">
+              <i class="bi bi-box-arrow-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

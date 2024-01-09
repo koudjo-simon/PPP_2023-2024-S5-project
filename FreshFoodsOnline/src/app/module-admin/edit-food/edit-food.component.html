@@ -1,0 +1,63 @@
+<div class="form_container">
+  <form [formGroup]="productFormGroup" (ngSubmit)="handleSubmit()">
+    <h3>UPDATE PRODUCT</h3>
+    <div class="form_lines">
+      <label for="name">Name </label>
+      <div class="input_div">
+        <input placeholder="Ex: choes" type="text" id="name" formControlName="name">
+        <small *ngIf="productFormGroup.controls['name'].errors && productFormGroup.controls['name'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Name', productFormGroup.controls['name'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="category">Category </label>
+      <select formControlName="category" id="category">
+        <option *ngFor="let cat of categoryList" [value]="cat.categoryId">{{ cat.name }}</option>
+      </select>
+    </div>
+    <div class="form_lines">
+      <label for="price">Price </label>
+      <div class="input_div">
+        <input placeholder="Ex: 20" type="number" id="price" formControlName="price">
+        <small *ngIf="productFormGroup.controls['price'].errors && productFormGroup.controls['price'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Price', productFormGroup.controls['price'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="description">Description </label>
+      <div class="input_div">
+        <input placeholder="Enter the description of the product" [value]="productFormGroup.get('description')?.value" type="text" id="description" formControlName="description">
+        <small *ngIf="productFormGroup.controls['description'].errors && productFormGroup.controls['description'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Description', productFormGroup.controls['description'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="image">Image </label>
+      <div class="input_div">
+        <input type="file" id="image" [src]="productFormGroup.get('imageUrl')?.value" (change)="onFileSelected($event)" formControlName="image">
+        <small *ngIf="productFormGroup.controls['image'].errors && productFormGroup.controls['image'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Image', productFormGroup.controls['image'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="quantity">Quantity</label>
+      <div class="input_div">
+        <input type="number" id="quantity" formControlName="quantity">
+        <small *ngIf="productFormGroup.controls['quantity'].errors && productFormGroup.controls['quantity'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Quantity', productFormGroup.controls['quantity'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="productStatus">Product Status </label>
+      <select formControlName="productStatus" id="productStatus" (change)="onProductStatusChange($event)">
+        <option *ngFor="let status of productStatus" [value]="status.value">{{ status.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>

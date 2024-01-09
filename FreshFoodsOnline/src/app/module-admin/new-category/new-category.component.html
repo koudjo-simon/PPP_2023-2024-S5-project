@@ -1,0 +1,25 @@
+<div class="form_container">
+
+  <form [formGroup]="categoryFormGroup" (ngSubmit)="handleSubmit()">
+    <h3>ADD CATEGORY</h3>
+    <div class="form_lines">
+      <label for="name">Name </label>
+      <div class="input_div">
+        <input placeholder="Ex: choes" type="text" id="name" formControlName="name">
+        <small *ngIf="categoryFormGroup.controls['name'].errors && categoryFormGroup.controls['name'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Name', categoryFormGroup.controls['name'].errors) }}
+        </small>
+      </div>
+    </div>
+    <div class="form_lines">
+      <label for="description">Description </label>
+      <div class="input_div">
+        <input placeholder="Enter the description of the product" type="text" id="description" formControlName="description">
+        <small *ngIf="categoryFormGroup.controls['description'].errors && categoryFormGroup.controls['description'].touched" class="text-danger">
+          {{ myValService.getValidatorErrorMessage('Description', categoryFormGroup.controls['description'].errors) }}
+        </small>
+      </div>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>

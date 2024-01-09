@@ -1,0 +1,44 @@
+<ng-template #errors>
+  <div class="text-danger">
+    {{errorMessage}}
+  </div>
+</ng-template>
+<div class="card mt-5">
+  <div class="card-header">
+    <h3 style="text-align: center;">Command List Adminstration</h3>
+  </div>
+  <div class="card-body">
+    <div class="input-group">
+      <input type="text" placeholder="Enter the food name for search" [(ngModel)]="searchKeyword" class="form-control" id="search">
+    </div>
+    <hr>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>N° Command</th>
+        <th>Total Price</th>
+        <th>Customer Name</th>
+        <th>Address</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="d-flex align-content-center justify-content-around">
+          <button class="btn btn-outline-warning">
+            <i class="bi bi-file"></i>
+          </button>
+          <button class="btn btn-outline-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

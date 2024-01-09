@@ -1,0 +1,66 @@
+<div class="form_container">
+
+    <form [formGroup]="foodFormGroup" (ngSubmit)="handleSubmit()">
+        <h3>ADD PRODUCT</h3>
+        <div class="form_lines">
+            <label for="name">Name </label>
+            <div class="input_div">
+                <input placeholder="Ex: choes" type="text" id="name" formControlName="name">
+                <small *ngIf="foodFormGroup.controls['name'].errors && foodFormGroup.controls['name'].touched" class="text-danger">
+                    {{ myValService.getValidatorErrorMessage('Name', foodFormGroup.controls['name'].errors) }}
+                </small>
+            </div>
+        </div>
+        <div class="form_lines">
+          <label for="category">Category </label>
+          <select formControlName="category" id="category">
+            <option *ngFor="let cat of categoryList" [value]="cat.categoryId">{{ cat.name }}</option>
+          </select>
+        </div>
+        <div class="form_lines">
+            <label for="price">Price </label>
+            <div class="input_div">
+                <input placeholder="Ex: 20" type="number" id="price" formControlName="price">
+                <small *ngIf="foodFormGroup.controls['price'].errors && foodFormGroup.controls['price'].touched" class="text-danger">
+                    {{ myValService.getValidatorErrorMessage('Price', foodFormGroup.controls['price'].errors) }}
+                </small>
+            </div>
+        </div>
+        <div class="form_lines">
+            <label for="description">Description </label>
+            <div class="input_div">
+                <input placeholder="Enter the description of the product" type="text" id="description" formControlName="description">
+                <small *ngIf="foodFormGroup.controls['description'].errors && foodFormGroup.controls['description'].touched" class="text-danger">
+                    {{ myValService.getValidatorErrorMessage('Description', foodFormGroup.controls['description'].errors) }}
+                </small>
+            </div>
+        </div>
+        <div class="form_lines">
+            <label for="image">Image </label>
+            <div class="input_div">
+                <input type="file" id="image" (change)="onFileSelected($event)" formControlName="image">
+                <small *ngIf="foodFormGroup.controls['image'].errors && foodFormGroup.controls['image'].touched" class="text-danger">
+                    {{ myValService.getValidatorErrorMessage('Image', foodFormGroup.controls['image'].errors) }}
+                </small>
+            </div>
+        </div>
+        <div class="form_lines">
+            <label for="quantity">Quantity</label>
+            <div class="input_div">
+                <input type="number" id="quantity" formControlName="quantity">
+                <small *ngIf="foodFormGroup.controls['quantity'].errors && foodFormGroup.controls['quantity'].touched" class="text-danger">
+                    {{ myValService.getValidatorErrorMessage('Quantity', foodFormGroup.controls['quantity'].errors) }}
+                </small>
+            </div>
+        </div>
+        <div class="form_lines">
+            <label for="productStatus">Product Status </label>
+            <select formControlName="productStatus" id="productStatus">
+                <option value="CREATED">CREATED</option>
+                <option value="AVAILABLE">AVAILABLE</option>
+                <option value="NOT_AVAILABLE">NOT AVAILABLE</option>
+            </select>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+</div>
